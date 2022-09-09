@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/aiwen/aiwen-go-gin/ginRouter/routerDestory/demo2/routers"
+	"github.com/aiwen/aiwen-go-gin/ginRouter/routerRegister/demo2/routers"
 )
 
 func main() {
