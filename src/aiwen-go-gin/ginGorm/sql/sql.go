@@ -18,7 +18,7 @@ func Init() {
 	if err != nil {
 		log.Fatal(nil)
 	}
-	DB.Set("gorm:table_options", "ENGINE=innoDB DEFAULT CHARSET=utf8").AutoMigrate(&User{})
+	DB.Set("gorm:table_options", "ENGINE=innoDB DEFAULT CHARSET=utf8").AutoMigrate(&AccountInfo{})
 }
 
 func Close() {
@@ -26,7 +26,7 @@ func Close() {
 }
 
 //定义数据模型
-type User struct {
+type AccountInfo struct {
 	gorm.Model
 	Name     string `gorm:"not null;unique"`
 	Password string `gorm:"not null;"`
@@ -34,3 +34,28 @@ type User struct {
 }
 
 //ORM封装接口
+type AccountInfoAPI struct {
+}
+
+func (h *AccountInfoAPI) List(offset, limit int) (accountInfo []AccountInfo) {
+	return
+}
+
+func (h *AccountInfoAPI) Create(accountInfo *AccountInfo) error {
+	return nil
+}
+func (h *AccountInfoAPI) Get(id int) (accountInfo AccountInfo) {
+	return
+}
+
+func (h *AccountInfoAPI) Update(id int, updates *AccountInfo) error {
+	return nil
+}
+
+func (h *AccountInfoAPI) Delete(id int) error {
+	return nil
+}
+func (h *AccountInfoAPI) Count() (int, error) {
+	var count int
+	return count, nil
+}
