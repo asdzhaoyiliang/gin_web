@@ -4,6 +4,7 @@ import (
 	"blog/controller"
 	"blog/logger"
 	"blog/settings"
+	"blog/util"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,6 +18,8 @@ func SetRouter() *gin.Engine {
 
 	//中间件
 	r.Use(logger.GinLogger())
+	//集成session
+	util.InitSession(r)
 
 	//注册函数
 	///hello函数

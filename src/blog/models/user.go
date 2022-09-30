@@ -4,6 +4,7 @@ import (
 	"blog/dao"
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 	"time"
 )
 
@@ -32,6 +33,7 @@ func Login(userName, password string) (user []*User, err error) {
 	db := dao.DB
 	db = db.Where("username = ?", userName)
 	db = db.Where("password = ?", encryptPassword([]byte(password)))
+	fmt.Println(encryptPassword([]byte(password)))
 	if err = db.Find(&user).Error; err != nil {
 		return nil, err
 	}
