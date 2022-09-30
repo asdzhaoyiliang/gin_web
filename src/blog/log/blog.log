@@ -1,0 +1,19 @@
+{"level":"info","ts":"2022-09-26T16:15:20.723+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:16:28.846+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:16:50.538+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:17:01.439+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:18:30.846+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:20:49.261+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:21:25.613+0800","caller":"logger/logger.go:74","msg":"/hello","status":200,"method":"GET","path":"/hello","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36","errors":"","cost":0.0009185}
+{"level":"info","ts":"2022-09-26T16:21:25.638+0800","caller":"logger/logger.go:74","msg":"/favicon.ico","status":404,"method":"GET","path":"/favicon.ico","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36","errors":"","cost":0}
+{"level":"info","ts":"2022-09-26T16:22:44.738+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:22:46.711+0800","caller":"logger/logger.go:74","msg":"/hello","status":200,"method":"GET","path":"/hello","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36","errors":"","cost":0.0003021}
+{"level":"info","ts":"2022-09-26T16:24:31.656+0800","caller":"logger/logger.go:74","msg":"/hello","status":200,"method":"GET","path":"/hello","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36","errors":"","cost":0.0002811}
+{"level":"info","ts":"2022-09-26T16:40:44.633+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:41:19.437+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:42:24.280+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:42:37.121+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:42:47.069+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T16:42:51.708+0800","caller":"logger/logger.go:74","msg":"/hello","status":200,"method":"GET","path":"/hello","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36","errors":"","cost":0}
+{"level":"info","ts":"2022-09-26T17:04:04.627+0800","caller":"logger/logger.go:44","msg":"init logger success"}
+{"level":"info","ts":"2022-09-26T17:04:57.187+0800","caller":"logger/logger.go:74","msg":"/hello","status":200,"method":"GET","path":"/hello","query":"","ip":"127.0.0.1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36","errors":"","cost":0.0011425}

@@ -38,22 +38,37 @@ type AccountInfoAPI struct {
 }
 
 func (h *AccountInfoAPI) List(offset, limit int) (accountInfo []AccountInfo) {
-	return
+	DB.Offset(offset).Limit(limit).Find(&accountInfo)
+	return accountInfo
 }
 
 func (h *AccountInfoAPI) Create(accountInfo *AccountInfo) error {
-	return nil
+	err := DB.Create(accountInfo).Error
+	return err
 }
-func (h *AccountInfoAPI) Get(id int) (accountInfo AccountInfo) {
-	return
+func (h *AccountInfoAPI) Get(p string) (accountInfo AccountInfo) {
+	DB.Where("password=?", p).First(&accountInfo)
+	return accountInfo
 }
 
 func (h *AccountInfoAPI) Update(id int, updates *AccountInfo) error {
-	return nil
+	var accountInfo AccountInfo
+	err := DB.First(&accountInfo, id).Error
+	if err != nil {
+		return err
+	}
+	err = DB.Model(&accountInfo).Update(updates).Error
+	return err
 }
 
 func (h *AccountInfoAPI) Delete(id int) error {
-	return nil
+	var accountInfo AccountInfo
+	err := DB.First(&accountInfo, id).Error
+	if err != nil {
+		return err
+	}
+	err = DB.Delete(&accountInfo).Error
+	return err
 }
 func (h *AccountInfoAPI) Count() (int, error) {
 	var count int
