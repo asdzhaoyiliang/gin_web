@@ -1,0 +1,75 @@
+﻿/*
+@Author：艾文 
+@Site：艾文老师博客： https://wenjie.blog.csdn.net/
+@艾文老师QQ一对一服务：1121025745，欢迎同学们随时交流，有任何问题也可以答疑区留言
+@介绍：BAT大厂一线资深开发工程师，欢迎交流
+@课程学习
+https://edu.csdn.net/lecturer/894
+https://edu.51cto.com/lecturer/14351901.html
+*/
+
+/*博主信息*/
+.blogerinfo {
+    text-align: center;
+    padding: 0 15px;
+    background: #fff;
+    margin-bottom: 15px;
+}
+
+.blogerinfo-figure {
+    display: inline-block;
+    margin: 20px auto;
+}
+
+.blogerinfo-figure img {
+    border-radius: 50px;
+}
+
+.blogerinfo-nickname {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+}
+
+.blogerinfo-introduce {
+    margin: 15px auto;
+    font-size: 18px;
+    width: 90%;
+}
+
+.blogerinfo-location {
+    color: #808080;
+    margin: 15px;
+}
+
+.blogerinfo-contact {
+    padding: 15px;
+    padding-top: 5px;
+}
+
+.blogerinfo-contact>a {
+    padding: 0 10px;
+}
+
+/*博主信息END*/
+
+/*友情链接*/
+.blogroll>li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px 5px;
+}
+
+/*友情链接END*/
+
+/*一路走来和后台记录*/
+.footprint>dt {
+    color: #01AAED;
+}
+
+.footprint>dd {
+    text-indent: 1.3em;
+    padding: 2px 0;
+}
+
+/*一路走来和后台记录END*/

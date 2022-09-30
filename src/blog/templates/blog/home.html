@@ -1,0 +1,99 @@
+{{template "head.html" .}}
+<!-- 主体（一般只改变这里的内容） -->
+<div class="blog-body">
+    <!-- 这个一般才是真正的主体内容 -->
+    <div class="blog-container">
+        <div class="blog-main">
+            <!-- 网站公告提示 -->
+            <div class="home-tips shadow">
+                <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
+                <div class="home-tips-container">
+                    {{range .notices}}
+                    <span style="color: #009688"><a href="/v1/detail/{{.Id}}" target="_blank"
+                            style="color:#01AAED">{{.Title}}</a></span>
+                    {{end}}
+                </div>
+            </div>
+            <!--左边文章列表-->
+            <div class="blog-main-left">
+
+                {{range .list}}
+                <div class="article shadow">
+                    <div class="article-left">
+                        {{if .Image}}
+                        <img src="{{.Image}}" style="width: 150px;" />
+                        {{else}}
+                        <img src="/static/images/1.jpeg">
+                        {{end}}
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="/v1/detail/{{.Id}}">{{.Title}}</a>
+                        </div>
+                        <div class="article-abstract">
+                            {{.Info}}
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp; {{.Updated}}</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;aiwen
+                        </span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">{{.Tags}}</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;{{.Views}}</span>
+                    </div>
+                </div>
+                {{end}}
+
+                <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-0">
+                    {{.pagebar}}
+                </div>
+            </div>
+            <!--右边小栏目-->
+            <div class="blog-main-right">
+                <div class="blogerinfo shadow">
+                    <p class="blogerinfo-nickname">跟艾文老师学编程</p>
+                    <p class="blogerinfo-introduce">大厂技术专家，实战大厂项目</p>
+                    <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;北京 - 海淀区</p>
+                    <hr />
+                </div>
+                <div></div>
+                <!--占位-->
+
+                <div class="article-category shadow">
+                    <div class="article-category-title">分类导航</div>
+                    {{range .cates}}
+                    {{if gt .Id 2}}
+                    <a href="/v1/article?cate_id={{.Id}}">{{.Name}}</a>
+                    {{end}}
+                    {{end}}
+                    <div class="clear"></div>
+                </div>
+
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">热文排行</div>
+                    <ul class="fa-ul blog-module-ul">
+                        {{range .hot}}
+                        <li style="line-height: 30px"><i class="fa-li fa fa-hand-o-right"></i><a
+                                href="/v1/detail/{{.Id}}">{{.Title}}</a></li>
+                        {{end}}
+                    </ul>
+                </div>
+
+                <div class="blog-module shadow">
+                    <div class="blog-module-title">友情链接</div>
+                    <ul class="blogroll">
+                        <li><a target="_blank" href="http://www.layui.com/" title="Layui">Layui</a></li>
+                        <li><a target="_blank" href="https://github.com/Echosong/ES/" title="页签">github</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- 底部 -->
+{{template "foot.html" .}}
+</body>
+
+</html>

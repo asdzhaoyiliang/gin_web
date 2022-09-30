@@ -1,0 +1,32 @@
+{{template "head.html" .}}
+<!-- 主体（一般只改变这里的内容） -->
+<div class="blog-body">
+    <div class="blog-container">
+        <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
+            <a href="/v1/home" title="首页">首页</a>
+            <a><cite>关于本站</cite></a>
+        </blockquote>
+
+        <div class="blog-main">
+            <div class="layui-tab layui-tab-brief shadow" lay-filter="tabAbout">
+
+                <div class="layui-tab-content">
+                    <div>
+                        <div class="aboutinfo">
+                            <fieldset class="layui-elem-field layui-field-title">
+                                <legend>简介</legend>
+                                <div class="layui-field-box aboutinfo-abstract">
+                                    {{.content}}
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "foot.html" .}}
+</body>
+
+</html>

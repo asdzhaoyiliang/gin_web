@@ -1,0 +1,51 @@
+﻿{{template "head.html" .}}
+<!-- 主体（一般只改变这里的内容） -->
+<div class="blog-body">
+    <div class="blog-container">
+        <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
+            <a href="/v1/home" title="首页">首页</a>
+            <a><cite>文章专栏</cite></a>
+        </blockquote>
+        <div class="blog-main">
+            <div class="blog-main-left">
+                {{range .list}}
+                <div class="article shadow">
+                    <div class="article-left">
+                        {{if .Image}}
+                        <img src="{{.Image}}" style="width: 150px;" />
+                        {{else}}
+                        <img src="/static/images/1.jpeg">
+                        {{end}}
+                    </div>
+                    <div class="article-right">
+                        <div class="article-title">
+                            <a href="detail/{{.Id}}">{{.Title}}</a>
+                        </div>
+                        <div class="article-abstract">
+                            {{.Info}}
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="article-footer">
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp; aiwen</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;aiwen</span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">{{.Tags}}</a></span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;{{.Views}}</span>
+                    </div>
+                </div>
+                {{end}}
+
+                <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-0">
+                    {{.pagebar}}
+                </div>
+
+            </div>
+            {{template "right.html" .}}
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+{{template "foot.html" .}}
+</body>
+
+</html>
