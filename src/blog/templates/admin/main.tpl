@@ -62,10 +62,7 @@
         </div>
     </div>
 
-    <!-- 底部 -->
-    <div class="layui-footer" style="text-align: center; line-height: 44px;">
-       Go Web项目开发实战（基于gin框架）艾文老师主讲
-    </div>
+
 </div>
 
 <script src="/static/plug/layui/lay/lib/jquery.js" type="text/javascript" charset="utf-8"></script>

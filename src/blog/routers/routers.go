@@ -29,13 +29,13 @@ func SetRouter() *gin.Engine {
 
 	//后端
 	v2Group := r.Group("admin")
+	v2Group.Use(controller.AuthMiddleware())
 	admin := controller.AdminController{}
 	{
 		//主页面登录
 		v2Group.GET("/login", admin.Login)
 		v2Group.POST("/login", admin.Login)
 		v2Group.GET("/logout", admin.Logout)
-		v2Group.GET("/register", admin.Register)
 
 		//主页
 		v2Group.GET("/main", admin.Main)
@@ -63,7 +63,7 @@ func SetRouter() *gin.Engine {
 		///增加
 		v2Group.GET("/categoryadd", admin.CategoryAdd)
 		///保存
-		v2Group.GET("/categorysave", admin.CategorySave)
+		v2Group.POST("/categorysave", admin.CategorySave)
 		///删除
 		v2Group.GET("/categorydel", admin.CategoryDel)
 

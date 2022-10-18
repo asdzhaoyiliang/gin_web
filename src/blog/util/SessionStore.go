@@ -26,6 +26,7 @@ func SetSess(context *gin.Context, key interface{}, value interface{}) error {
 	session.Set(key, value)
 	return session.Save()
 }
+
 func GetSess(context *gin.Context, key interface{}) interface{} {
 	session := sessions.Default(context)
 	return session.Get(key)

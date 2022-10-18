@@ -1,6 +1,9 @@
 package models
 
-import "time"
+import (
+	"blog/dao"
+	"time"
+)
 
 type Post struct {
 	Id         int
@@ -18,4 +21,13 @@ type Post struct {
 	Types      int
 	Info       string
 	Image      string
+}
+
+func GetArticleList(offset int, pagesize int) (articleList []*Post, err error) {
+	db := dao.DB.Offset(offset).Limit(pagesize).Order(" is_top desc, created desc")
+	if err = db.Find(&articleList).Error; err != nil {
+		return nil, err
+	}
+
+	return articleList, nil
 }

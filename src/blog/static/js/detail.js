@@ -1,12 +1,4 @@
-﻿/*
-@Author：艾文 
-@Site：艾文老师博客： https://wenjie.blog.csdn.net/
-@艾文老师QQ一对一服务：1121025745，欢迎同学们随时交流，有任何问题也可以答疑区留言
-@介绍：BAT大厂一线资深开发工程师，欢迎交流
-@课程学习
-https://edu.csdn.net/lecturer/894
-https://edu.51cto.com/lecturer/14351901.html
-*/
+﻿
 
 prettyPrint();
 layui.use(['form', 'layedit'], function () {
