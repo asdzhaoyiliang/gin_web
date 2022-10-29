@@ -54,11 +54,9 @@
                     <a href="/admin/article?id={{.Id}}">
                         <i class="layui-icon">&#xe642;</i> 修改
                     </a>
-                    {{if ne .CategoryId 1}}
                     <a href="javascript:void(0)" onclick="del({{.Id}})">
                         <i class="layui-icon">&#x1006;</i> 删除
                     </a>
-                    {{end}}
                 </td>
             </tr>
             {{end}}

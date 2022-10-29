@@ -9,7 +9,7 @@
                 <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
                 <div class="home-tips-container">
                     {{range .notices}}
-                    <span style="color: #009688"><a href="/v1/detail/{{.Id}}" target="_blank"
+                    <span style="color: #009688"><a href="/blog/detail/{{.Id}}" target="_blank"
                             style="color:#01AAED">{{.Title}}</a></span>
                     {{end}}
                 </div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="article-right">
                         <div class="article-title">
-                            <a href="/v1/detail/{{.Id}}">{{.Title}}</a>
+                            <a href="/blog/detail/{{.Id}}">{{.Title}}</a>
                         </div>
                         <div class="article-abstract">
                             {{.Info}}
@@ -64,7 +64,7 @@
                     <div class="article-category-title">分类导航</div>
                     {{range .cates}}
                     {{if gt .Id 2}}
-                    <a href="/v1/article?cate_id={{.Id}}">{{.Name}}</a>
+                    <a href="/blog/article?cate_id={{.Id}}">{{.Name}}</a>
                     {{end}}
                     {{end}}
                     <div class="clear"></div>
@@ -75,7 +75,7 @@
                     <ul class="fa-ul blog-module-ul">
                         {{range .hot}}
                         <li style="line-height: 30px"><i class="fa-li fa fa-hand-o-right"></i><a
-                                href="/v1/detail/{{.Id}}">{{.Title}}</a></li>
+                                href="/blog/detail/{{.Id}}">{{.Title}}</a></li>
                         {{end}}
                     </ul>
                 </div>

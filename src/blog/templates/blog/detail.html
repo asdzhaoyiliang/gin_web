@@ -3,8 +3,8 @@
 <div class="blog-body">
     <div class="blog-container">
         <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
-            <a href="/v1/home" title="首页">首页</a>
-            <a href="/v1/article" title="文章专栏">文章专栏</a>
+            <a href="/blog/home" title="首页">首页</a>
+            <a href="/blog/article" title="文章专栏">文章专栏</a>
             <a><cite>{{.post.Title}}</cite></a>
         </blockquote>
         <div class="blog-main">
@@ -28,7 +28,7 @@
                     <fieldset class="layui-elem-field layui-field-title" style="margin-bottom:0">
                         <legend>来说两句吧</legend>
                         <div class="layui-field-box">
-                            <form class="layui-form blog-editor" action="/v1/comment" method="post">
+                            <form class="layui-form blog-editor" action="/blog/comment" method="post">
                                 <div class="layui-form-item">
 
                                     <input type="hidden" name="post_id" value="{{.post.Id}}">

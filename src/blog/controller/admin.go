@@ -144,9 +144,12 @@ func (a *AdminController) Index(c *gin.Context) {
 	//商品
 	var pagesize int = 5
 	var offset int
+	var page = 1
 	pageStr, _ := c.GetQuery("page")
-	page, _ := strconv.Atoi(pageStr)
-	offset = page * pagesize
+	if pageStr != "" {
+		page, _ = strconv.Atoi(pageStr)
+	}
+	offset = (page - 1) * pagesize
 	list, _ := models.GetArticleList(offset, pagesize)
 	datalist["list"] = list
 
@@ -155,26 +158,70 @@ func (a *AdminController) Index(c *gin.Context) {
 	datalist["count"] = count
 
 	//分页
-	pagebar := util.NewPager(page, count, pagesize, c.Request.RequestURI, true).ToString()
+	pagebar := util.NewPager(page, count, pagesize, "/admin/index", true).ToString()
 	datalist["pagebar"] = template.HTML(pagebar)
 
-	fmt.Println(datalist)
 	c.HTML(http.StatusOK, "list.html", datalist)
 }
 
 //博文添加
 func (a *AdminController) Article(c *gin.Context) {
+	dataList := gin.H{}
+	categoryList, _ := models.CategoryList()
+	dataList["categorys"] = categoryList
 
+	idString, _ := c.GetQuery("id")
+	if idString != "" {
+		id, _ := strconv.Atoi(idString)
+		article, _ := models.GetDetailById(id)
+		dataList["post"] = article
+	}
+	c.HTML(http.StatusOK, "_form.html", dataList)
 }
 
 //保存
 func (a *AdminController) Save(c *gin.Context) {
+	post := models.Post{}
+	post.UserId = 1
+	post.Title = c.PostForm("title")
+	post.Content = c.PostForm("content")
+	fmt.Println(post)
+
+	is_top := c.PostForm("is_top")
+	if is_top == "" {
+		post.IsTop = 0
+	} else {
+		post.IsTop, _ = strconv.Atoi(is_top)
+	}
+
+	post.Types, _ = strconv.Atoi(c.PostForm("types"))
+	post.Tags = c.PostForm("tags")
+	post.Url = c.PostForm("url")
+	post.CategoryId, _ = strconv.Atoi(c.PostForm("cate_id"))
+	post.Info = c.PostForm("info")
+	post.Image = c.PostForm("image")
+	post.Created = time.Now()
+	post.Updated = time.Now()
+
+	fmt.Println(post)
+	id, _ := strconv.Atoi(c.PostForm("id"))
+	if id == 0 {
+		models.CreatePost(&post)
+	} else {
+		post.Id = id
+		models.UpdatePost(&post)
+	}
+	c.Redirect(http.StatusMovedPermanently, "/admin/index")
 
 }
 
 //文章删除
 func (a *AdminController) PostDel(c *gin.Context) {
-
+	idStr, _ := c.GetQuery("id")
+	id, _ := strconv.Atoi(idStr)
+	models.DeletePost(id)
+	fmt.Println("id:", id)
+	c.Redirect(http.StatusMovedPermanently, "/admin/index")
 }
 
 //类目

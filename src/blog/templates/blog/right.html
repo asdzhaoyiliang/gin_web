@@ -1,6 +1,6 @@
 <div class="blog-main-right">
     <div class="blog-search">
-        <form class="layui-form" action="/v1/article" method="get" id="formSearch">
+        <form class="layui-form" action="/blog/article" method="get" id="formSearch">
             <div class="layui-form-item">
                 <div class="search-keywords  shadow">
 
@@ -23,7 +23,7 @@
         <div class="article-category-title">分类导航</div>
         {{range .cates}}
         {{if gt .Id 2}}
-        <a href="/v1/article?cate_id={{.Id}}">{{.Name}}</a>
+        <a href="/blog/article?cate_id={{.Id}}">{{.Name}}</a>
         {{end}}
         {{end}}
         <div class="clear"></div>
@@ -33,7 +33,7 @@
         <ul class="fa-ul blog-module-ul">
             {{range .hot}}
             <li style="line-height: 30px"><i class="fa-li fa fa-hand-o-right"></i><a
-                    href="/v1/detail/{{.Id}}">{{.Title}}</a></li>
+                    href="/blog/detail/{{.Id}}">{{.Title}}</a></li>
             {{end}}
         </ul>
     </div>

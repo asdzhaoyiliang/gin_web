@@ -6,8 +6,26 @@ import (
 	"blog/settings"
 	"blog/util"
 	"github.com/gin-gonic/gin"
+	"strings"
 )
 
+func GetReqName() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		uri := c.Request.RequestURI
+		var actionName = "home"
+		if strings.HasSuffix(uri, "resource") {
+			c.Set("actionName", "resource")
+			actionName = "resource"
+		} else if strings.HasSuffix(uri, "article") {
+			actionName = "article"
+		} else if uri == "/admin/login" {
+			actionName = "login"
+			c.Set("test", "admin")
+		}
+		c.Set("actionName", actionName)
+		c.Next()
+	}
+}
 func SetRouter() *gin.Engine {
 	r := gin.Default()
 
@@ -18,6 +36,7 @@ func SetRouter() *gin.Engine {
 
 	//中间件
 	r.Use(logger.GinLogger())
+	r.Use(GetReqName())
 	//集成session
 	util.InitSession(r)
 
@@ -26,6 +45,16 @@ func SetRouter() *gin.Engine {
 	r.GET("/hello", helloHandler)
 
 	//前端
+	v1Group := r.Group("blog")
+	blog := controller.BlogController{}
+	{
+		v1Group.GET("/home", blog.GetHome)
+		v1Group.GET("/article", blog.GetArticleList)
+		v1Group.GET("/detail/:id", blog.GetArticleDetail)
+		v1Group.POST("/comment", blog.CreateComment)
+		v1Group.GET("/resource", blog.Resource)
+		v1Group.GET("/about", blog.GetAbout)
+	}
 
 	//后端
 	v2Group := r.Group("admin")
@@ -34,7 +63,6 @@ func SetRouter() *gin.Engine {
 	{
 		//主页面登录
 		v2Group.GET("/login", admin.Login)
-		v2Group.POST("/login", admin.Login)
 		v2Group.GET("/logout", admin.Logout)
 
 		//主页
@@ -48,12 +76,10 @@ func SetRouter() *gin.Engine {
 
 		//博文列表
 		v2Group.GET("/index", admin.Index)
-
-		//博文添加
-		///显示
+		///显示详情
 		v2Group.GET("/article", admin.Article)
 		///文章保存
-		v2Group.GET("/save", admin.Save)
+		v2Group.POST("/save", admin.Save)
 		///文章删除
 		v2Group.GET("/delete", admin.PostDel)
 
