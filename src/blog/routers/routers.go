@@ -63,6 +63,7 @@ func SetRouter() *gin.Engine {
 	{
 		//主页面登录
 		v2Group.GET("/login", admin.Login)
+		v2Group.POST("/login", admin.Login)
 		v2Group.GET("/logout", admin.Logout)
 
 		//主页
